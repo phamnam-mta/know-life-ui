@@ -16,7 +16,8 @@ exports.handler = function(event, context, callback) {
   const host = 'http://127.0.0.1:5000';
   const agent = host.startsWith("http:") ? httpAgent : httpsAgent;
 
-  fetch(`${host}/semantic_search`, {
+  fetch(`${host}/medical_test_suggestion`, {
+  //fetch(`${host}/semantic_search`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: event.body,
