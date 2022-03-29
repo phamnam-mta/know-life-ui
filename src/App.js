@@ -55,17 +55,17 @@ const config = {
     if(sortField === "") {
       search_method = "elastic"
     }
-    // const requestBody = {
-    //   "question": searchTerm,
-    //   "page_size": size,
-    //   "page_index": from,
-    //   "search_method": search_method
-    // };
     const requestBody = {
-      "indicators": [
-        { "id": 1, "test_name": searchTerm.split(":")[0], "result": searchTerm.split(":")[1], "unit": "mmol/L" }
-      ]
+      "question": searchTerm,
+      "page_size": size,
+      "page_index": from,
+      "search_method": search_method
     };
+    // const requestBody = {
+    //   "indicators": [
+    //     { "id": 1, "test_name": searchTerm.split(":")[0], "result": searchTerm.split(":")[1], "unit": "mmol/L" }
+    //   ]
+    // };
     // Note that this could be optimized by running all of these requests
     // at the same time. Kept simple here for clarity.
     const responseJson = await runRequest(requestBody, search_method);
